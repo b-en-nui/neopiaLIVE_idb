@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>neopiaLIVE - search</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- development version, includes helpful console warnings -->
+		<script src="/client/js/auctionplot.js"></script>
+		<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="app">
+            <div class="jumbotron text-center">
+                <h1>NeopiaLIVE Item Database</h1>
+            </div>
+            <div class="container">
+                <center>
+                    <input type="text" id="guessInput" name="name" requiredminlength="1" size="16">
+                    <button id="inputButton" v-on:click="buttonClick">Search</button><br>
+                    <div id = "alert_placeholder"></div><br>
+                </center>
+
+                <div v-if="itemName">
+                    <br><h1>{{ itemName }}</h1>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <center><img :src="itemImgSrc" alt=""></img></center>
+                        </div>
+                        <div class="col-sm-10">
+                            <p>Description: {{ itemDesc }}</p>
+                            <p>Rarity: {{ itemRarity }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12"><center>
+                            <a :href="'http://www.neopets.com/market.phtml?type=wizard&string='+itemName">
+                                <img src="http://images.neopets.com/new_shopkeepers/t_209.gif" width="40" height="40" alt=""></img>
+                            </a>
+                            <a :href="'http://www.neopets.com/island/tradingpost.phtml?type=browse&criteria=item_exact&sort_by=newest&search_string='+itemName">
+                                <img src="http://images.neopets.com/shopkeepers/tradingfaerie.gif" width="40" height="40" alt=""></img>
+                            </a>
+                            <a :href="'http://www.neopets.com/genie.phtml?type=process_genie&criteria=exact&auctiongenie='+itemName">
+                                <img src="http://images.neopets.com/new_shopkeepers/2.gif" width="40" height="40" alt=""></img>
+                            </a>
+                            <a :href="'http://www.neopets.com/safetydeposit.phtml?obj_name='+itemName">
+                                <img src="http://images.neopets.com/images/emptydepositbox.gif" width="40" height="40" alt=""></img>
+                            </a>
+                        </center></div>
+                    
+                    </div>
+                    <div class="row">
+
+                    </div>
+                </div>
+                <div id="chartContainer" style="height: 270px; width: 100%; display: none;"></div>
+                <div id="base64" style="display: none;"></div>
+            </div>     
+        </div>
+
+        <br>
+        <div id="toggleText" style="display: none">
+
+        </div>
+        </body>
+        <script src="/client/js/app.js"></script>
+</html>
