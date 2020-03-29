@@ -31,7 +31,6 @@ var app = new Vue({
     var button = document.getElementById('inputButton');
     var ele = document.getElementById("chartContainer");
     var chart = new CanvasJS.Chart("chartContainer", {
-        width:1000,
         axisY: {
         title: "Neopoints",
         includeZero: true
