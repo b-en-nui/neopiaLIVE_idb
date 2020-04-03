@@ -11,18 +11,30 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
+		<style>  
+           ul{  
+                background-color:#eee;  
+                cursor:pointer;  
+           }  
+           li{  
+                padding:12px;  
+           }  
+          </style>
+	
+	</head>
     <body>
         <div id="app">
             <div class="jumbotron text-center">
                 <h1>NeopiaLIVE Item Database</h1>
             </div>
             <div class="container">
-                <center>
-                    <input type="text" id="guessInput" name="name" requiredminlength="1" size="16">
-                    <button id="inputButton" v-on:click="buttonClick">Search</button><br>
-                    <div id = "alert_placeholder"></div><br>
-                </center>
+                
+					<div class="container" style="width:500px;"> 
+						<input type="text" name="item" id="item" class="form-control" placeholder="Enter Item Name"/>  
+						<div id="itemList"></div>  
+						<div id="itemInfo"></div>
+					</div>
+                
 
                 <div v-if="itemName">
                     <br><h1>{{ itemName }}</h1>
